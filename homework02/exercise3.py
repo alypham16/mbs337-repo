@@ -7,35 +7,36 @@ def base_percentage(dna_sequence):
     dna_length = len(dna_sequence)
     for base in dna_sequence:
         if base == "A":
-            percentages["A"] = (dna_sequence.count("A") / dna_length) * 100
+            percentages["A"] = round((dna_sequence.count("A") / dna_length) * 100,2)
         elif base == "T":
-            percentages["T"] = (dna_sequence.count("T") / dna_length) * 100
+            percentages["T"] = round((dna_sequence.count("T") / dna_length) * 100, 2)
         elif base == "G":
-            percentages["G"] = (dna_sequence.count("G") / dna_length) * 100
+            percentages["G"] = round((dna_sequence.count("G") / dna_length) * 100, 2)
         else:
-            percentages["C"] = (dna_sequence.count("C") / dna_length) * 100
-    return percentages
+            percentages["C"] = round((dna_sequence.count("C") / dna_length) * 100, 2)
+    print(percentages)
 
 # Testing function with sample DNA sequence, via bioinformatics.org
-test_sequence = 
+
+test_sequence = """
+aggagaggttttcattctatgaattaacacgacggttagcgtagtacgagctccccggga
+ctcgattcctatgaactgcgtatgaataaaaggtcccgcttcacaacttcatgcatagtc
+gcaatcctatgaatattaaggtagtcgatgtccttttgacctctcactgtctccgtgttc
+tcgaagttatatccacagagcgatcaaagtagcaggcgtcgcggccgtgcacagctgcga
+cctctttctgacctacctgccgttcacgaacggagtctggatcgataatctggaatgtta
+ccaggactcatacgcaacgacacgtacccgcgctcccccggcgctcctgaatatctcgag
+tttacatcgttccgtcagtgaaagtcgctgacgtctgggccactagtccctttaccccct
+atggctgcctggcgatgactgactcactgaaagttgggatgaaaactttacgtaagggcg
+gcggtcaggcgcaatcgtgattatagccggcacaaccgagaaatgccggcctgcctttct
+tctaaaccgattcaataagataacactccagcaaggctcggatagacctgaatatatttc
+acgtggtgattactcgagcaatttacatctgcacccctaggacatttacggtgctgtagt
+tcccgtggctttcgtcagataccacaattagagaaagctggggaaggataccacagagtc
+tgtgagcgcatcggattgtgatcccccctctgagcgtggaacctagtcccctaattgcgt
+taacgctgcgctagcagccgcgcaacagccactaaggacagagacgttacccttccgcgt
+cccagcggtatcaagtttcagatgtagcttcatcatggtatgaacgtattttcctaaccc
+cgtccactcgccgctacgggccgtacgcgaggtggaatgaaaagtgtcatcgtatccagc
+ttccgcgccgttaacaccgatcgacttaggggtaagacgt
 """
-catcgatgatctgcggagcctgacgttcgtatacggggcagtagtgtactatggcgacgc
-tcgctacgccgaagcttcgacgggttactttttatactggcctagtatgatcgaacgatg
-tttccaccatgatcagacgatctagggtgtgtcatgttttcgacagatgcctctcatggt
-gaaactactgaacattgggtatctaccttggttcggcccctattacacaaagccatgcgg
-ctattccgctaatgtcgctactttaacccaacaatcagaaagtcccccatggacaaaagt
-cggacctataataagttttgcagcgggccacctggtccacactccacaaatcactgccgc
-atcagctagcaagaacggtatacaaatgctatgcggttctacggcactgggagtgaatac
-ggagctttatcaaaatagctggttagggccccttaaagagcgctgacattacgatcgaca
-gctctaactaacaacggcacgtgtgatactttcatcagagcctcttgcttcatatcggca
-gtatctgacgtaggtgccttatagggataacgggttgcaccggggggtcccgatcgtaaa
-cggccgaatcagtcaaacgcgcaggagcaagaataccctagtcccaggtgcggtatatga
-cactcagttgctcgggtccaccgtcagacgaaagcagcagtgcccccgttccgtggcact
-agccgaccgtactgagttcgatcctccgtacttcaaagtatttttggaccgtcatattac
-taggctgacaaacggaaggactttgctaagtagagtcacaacgtgtggtgatgcgcatgt
-gccgacgctacgtaattcgatgtacgactagtctctcagtcgcgcttcgctgatgaataa
-gtagaaagcgtggaaactgtgttgaaagtatggatatgtgcaagccgcgataatgagtcg
-atgtgcatcaacgtaccctacaaatgatccagtgtccaaacttggtgctggtggtggcagc
-"""
-base_percentages(test_sequence.replace("\n", ""))
+
+base_percentage(test_sequence.upper().replace("\n",""))
             

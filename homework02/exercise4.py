@@ -17,4 +17,14 @@ genes = {"Gene 1": {"Control": [10.5, 11.2, 10.8], "Treatment": [25.3, 24.7, 26.
          "Gene 3": {"Control": [15.0, 14.8, 15.2], "Treatment": [18.5, 18.2, 18.8]}}
 
 for gene, data in genes.items():
+    control_mean = sum(data["Control"]) / len(data["Control"])
+    treatment_mean = sum(data["Treatment"]) / len(data["Treatment"])
+    fold_change = treatment_mean / control_mean
+
+    print(f"{gene}: Control Mean: {control_mean:.2f}")
+    print(f"{gene}: Treatment Mean: {treatment_mean:.2f}")
+    print(f"{gene}: Fold Change: {fold_change:.2f}")
+
+    if fold_change > 2.0 or fold_change < 0.5:
+        print(f"{gene} shows significant changes based on the criteria")
     
