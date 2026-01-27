@@ -1,7 +1,8 @@
 # Exercise Prompt: Using BioPython’s Seq class, determine the GC content of the following DNA sequence: 
 # GAACCGGGAGGTGGGAATCCGTCACATATGAGAAGGTATTTGCCCGATAA
 
-dna_sequence = "GAACCGGGAGGTGGGAATCCGTCACATATGAGAAGGTATTTGCCCGATAA"
+from Bio.Seq import Seq
+dna_sequence = Seq("GAACCGGGAGGTGGGAATCCGTCACATATGAGAAGGTATTTGCCCGATAA")
 for base in dna_sequence:
     g_content = dna_sequence.count("G")
     c_content = dna_sequence.count("C")
