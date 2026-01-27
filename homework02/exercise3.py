@@ -16,7 +16,7 @@ def base_percentage(dna_sequence):
             percentages["C"] = round((dna_sequence.count("C") / dna_length) * 100, 2)
     print(percentages)
 
-# Testing function with sample DNA sequence, via bioinformatics.org
+# Testing function with sample DNA sequence, randomly generated via bioinformatics.org
 
 test_sequence = """
 aggagaggttttcattctatgaattaacacgacggttagcgtagtacgagctccccggga
@@ -39,4 +39,3 @@ ttccgcgccgttaacaccgatcgacttaggggtaagacgt
 """
 
 base_percentage(test_sequence.upper().replace("\n",""))
-            
