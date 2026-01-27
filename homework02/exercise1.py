@@ -4,6 +4,7 @@
 
 from random import randint
 int_lst = [randint(1, 100) for i in range(10)]
+print(int_lst)
 
 def even_odd(number):
     if number % 2 == 0:
