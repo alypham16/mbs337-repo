@@ -5,3 +5,4 @@
 # - exercise2.py: Python script for Exercise 2.
 # - exercise3.py: Python script for Exercise 3.
 # - exercise4.py: Python script for Exercise 4.
+# No use of AI was utilized for any of the exercises.
