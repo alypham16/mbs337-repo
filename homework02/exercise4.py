@@ -27,4 +27,3 @@ for gene, data in genes.items():
 
     if fold_change > 2.0 or fold_change < 0.5:
         print(f"{gene} shows significant changes based on the criteria")
-    
