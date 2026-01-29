@@ -7,7 +7,7 @@ def base_percentage(dna_sequence):
     dna_length = len(dna_sequence)
     for base in dna_sequence:
         if base == "A":
-            percentages["A"] = round((dna_sequence.count("A") / dna_length) * 100,2)
+            percentages["A"] = round((dna_sequence.count("A") / dna_length) * 100, 2)
         elif base == "T":
             percentages["T"] = round((dna_sequence.count("T") / dna_length) * 100, 2)
         elif base == "G":
