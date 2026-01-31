@@ -14,14 +14,6 @@ Create a Python script called exercise2.py that:
     function
 
 3. Writes the output to a file called proteins.csv
-
-Use the csv module from Python’s standard library
-
-Include a header row with flattened field names (using underscores to indicate nesting)
-
-Iterate through entries and extract nested values to create each row
-
-Write each flattened row to the CSV file
 """
 
 import json
