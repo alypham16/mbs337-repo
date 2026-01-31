@@ -24,6 +24,9 @@ terminal when the script runs.
 import json
 from pydantic import BaseModel
 
+with open("protein_list.json", "r") as f:
+    prot_data = json.load(f)
+
 class ProteinEntry(BaseModel): # template describing structure of any protein entry
     primaryAccession: str
     organism: dict
@@ -32,29 +35,33 @@ class ProteinEntry(BaseModel): # template describing structure of any protein en
     geneName: str
 
 proteins = []
-with open("protein_list.json", "r") as f:
-    prot_data = json.load(f)
 
 for prot in prot_data["protein_list"]:
     proteins.append(ProteinEntry(**prot)) # unpacking dictionary to turn into ProteinEntry object
 
-
-## this kind of math but need to access correctly
-def find_total_mass():
+# Calculating the total mass of all proteins in the list
+def find_total_mass(list_of_proteins) -> int:
+    total_mass = 0
     for prot in proteins:
-        total_mass += prot["mass"]
+        total_mass += prot.sequence["mass"]
     print(total_mass)
 
-## this kind of math but need to access correctly
-def find_large_proteins():
+# Finding proteins over 1000 amino acids long
+def find_large_proteins(list_of_proteins) -> list:
     lg_prots = []
     for prot in proteins:
-        if prot.length >= 1000:
-            lg_prots.append[prot]
+        if prot.sequence["length"] >= 1000:
+            lg_prots.append(prot.proteinName)
+    print(lg_prots)
 
-## this kind of math but need to access correctly
-def find_non_eukaryotes():
+# Finding non-eukaryotic proteins
+def find_non_eukaryotes(list_of_proteins) -> list:
     non_eukarya = []
     for prot in proteins:
         if prot.organism["lineage"] != "Eukaryota":
-            non_eukarya.append[prot]
+            non_eukarya.append(prot.proteinName)
+    print(non_eukarya)
+
+find_total_mass(proteins)
+find_large_proteins(proteins)
+find_non_eukaryotes(proteins)
