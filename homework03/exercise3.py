@@ -19,7 +19,7 @@ with open("protein_list.json", "r") as f:
     prot_data = json.load(f)
 
 root = {}
-root["protein_list"] = prot_data["protein_list"]
+root["protein_list"] = {"protein": prot_data["protein_list"]}
 
 with open ("proteins.xml", "w") as o:
     o.write(xmltodict.unparse(root, pretty = True))
