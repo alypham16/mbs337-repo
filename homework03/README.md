@@ -5,6 +5,8 @@
 # - exercise2.py: Python script for Exercise 2.
 # - exercise3.py: Python script for Exercise 3.
 # - exercise4.py: Python script for Exercise 4.
-# - protein_list.json: JSON file utilized for the exercises.
+# - protein_list.json: Unitprot JSON file utilized for all exercises.
 # - proteins.csv: CSV file part of Exercise 2.
+# - proteins.xml: XML file part of Exercise 3.
+# - proteins.yaml: YAML file part of Exercise 4.
 # No use of AI was utilized for any of the exercises.
