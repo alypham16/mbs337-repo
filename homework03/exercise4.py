@@ -4,13 +4,6 @@ Create a Python script called exercise4.py that:
 1. Reads the uniprot_protein_list.json file
 2. Converts the data to YAML format
 3. Writes the output to a file called proteins.yaml
-
-Requirements:
-
-1. Import the yaml module
-2. The YAML file should maintain the original order within the JSON file
-3. The YAML file should start with --- and end with ...
-
 """
 
 import json
