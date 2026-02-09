@@ -31,10 +31,9 @@ with open("immune_proteins.fasta", "r") as f:
         if len(sequence) < shortest_sequence_residues:
             shortest_sequence = parts[1]
             shortest_sequence_residues = len(sequence)
+
     print(f"Num Sequences: {total_sequences}")
     print(f"Total Residues: {residue_total}")
     print(f"Longest Accession: {largest_sequence} ({largest_sequence_residues} residues)")
     print(f"Shortest Accession: {shortest_sequence} ({shortest_sequence_residues} residues)")
-
-
 
