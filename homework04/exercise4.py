@@ -10,28 +10,6 @@ For each chain, prints:
 1. Chain ID
 2. Number of non-hetero-residues in that chain
 3. Number of atoms in the non-hetero-residues in that chain
-
-"""
-"""
-Example Output:
-
-Chain A: 141 residues, 1069 atoms
-Chain B: 146 residues, 1123 atoms
-Chain C: 141 residues, 1069 atoms
-Chain D: 146 residues, 1123 atoms
-
-Requirements:
-
-Use 4HHB.cif.
-
-Use MMCIFParser from Bio.PDB.MMCIFParser to read the mmCIF file.
-
-Remember the object hierarchy in Biopython PDB: structure → models → chains → residues → atoms. Use nested for loops to walk this hierarchy.
-
-Only when the residue is non-hetero should you increment your residue counter and loop over its atoms to count them.
-
-Match the example output format exactly.
-
 """
 
 from Bio.PDB import MMCIFParser

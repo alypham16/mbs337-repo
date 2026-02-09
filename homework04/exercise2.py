@@ -5,7 +5,6 @@ using SimpleFastaParser again. This time, your script should write out a new
 FASTA file called long_only.fasta containing only the sequences longer than or 
 equal to 1000 residues. Each output record must be a valid FASTA with the original 
 headers format preserved.
-
 """
 
 from Bio.SeqIO.FastaIO import SimpleFastaParser

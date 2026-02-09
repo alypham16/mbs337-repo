@@ -8,7 +8,6 @@ Create a Python script called exercise3.py that:
 3. Writes those filtered reads out to a new FASTQ file named sample1_cleanReads.fastq.
 4. Prints to the terminal the total number of reads in the original file and the number 
 of reads that passed quality control.
-
 """
 
 from Bio import SeqIO
