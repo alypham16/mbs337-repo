@@ -13,10 +13,8 @@ pip3 install biopython
 
 The following files were used for this homework:
 
-- immune_proteins.fasta: https://github.com/TACC/mbs-337-sp26/raw/refs/heads/main/docs/unit03/sample-data/immune_proteins.fasta.gz
-gunzip immune_proteins.fasta.gz (Exercises 1 and 2)
-- sample1_rawReads.fastq: https://github.com/TACC/mbs-337-sp26/raw/refs/heads/main/docs/unit03/sample-data/sample1_rawReads.fastq.gz
-gunzip sample1_rawReads.fastq.gz (Exercise 3)
+- immune_proteins.fasta: https://github.com/TACC/mbs-337-sp26/raw/refs/heads/main/docs/unit03/sample-data/immune_proteins.fasta.gz (Exercises 1 and 2)
+- sample1_rawReads.fastq: https://github.com/TACC/mbs-337-sp26/raw/refs/heads/main/docs/unit03/sample-data/sample1_rawReads.fastq.gz (Exercise 3)
 - 4HHB.cif (hemoglobin structure): https://files.rcsb.org/download/4HHB.cif.gz (Exercise 4)
 
 ## Exercise Descriptions
