@@ -21,7 +21,7 @@ gunzip sample1_rawReads.fastq.gz (Exercise 3)
 
 ## Exercise Descriptions
 
-All exercises require installation of the **biopython ** package.
+All exercises require installation of the **biopython** package.
 
 ### Exercise 1
 
