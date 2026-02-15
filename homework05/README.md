@@ -23,9 +23,8 @@ The exercise includes building a **mmcif_summary.py** Python script htat reads a
 
 ## Miscellaneous
 The following non-exercise files are also in the directory
-- README.md: This file, which contains an overview of the homework04 directory
-- output_files: a sub-directory that includes long_only.fasta and sample1_cleanReads.fastq for Exercises 2 and 3, respectively.
-
+- README.md: This file, which contains an overview of the homework05 directory
+- output_files: a sub-directory that includes 4HHB_summary.json.
 ## AI Usage
 
 No AI was used for this assignment.

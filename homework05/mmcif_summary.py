@@ -12,11 +12,32 @@ Create a Python script named mmcif_summary.py that:
 
 """
 import json
+import argparse
+import logging
+import socket
 from Bio.PDB import MMCIFParser
 
-def extract_mmcif_info(structure) -> list:
+
+# Logging setup
+parser = argparse.ArgumentParser()
+parser.add_argument("-l", "--loglevel",
+                    type = str,
+                    required = False,
+                    default = "WARNING",
+                    help = "set log level to DEBUG, INFO, WARNING, ERROR, or CRITICAL")
+
+args = parser.parse_args()
+
+format_str = (
+    f'[%(asctime)s {socket.gethostname()}] '
+    '%(filename)s:%(funcName)s:%(lineno)s - %(levelname)s: %(message)s'
+)
+
+logging.basicConfig(level = args.loglevel, format = format_str)
+
+def extract_mmcif_info(structure: object) -> list:
     """
-    Given a parsed MMCIF file, extracts chain information.
+    Given a parsed MMCIF file, extracts chain per-residue information.
 
     Args:
         structure: a parsed Bio.PDB object containing the protein information
@@ -30,9 +51,9 @@ def extract_mmcif_info(structure) -> list:
         - standard_residues
         - hetero_residue_count
     """
+    logging.debug(f"Extracting residue information from {structure}")
 
     chains_lst = []
-
     for model in structure:
         for chain in model:
             chain_id = chain.get_id()
@@ -51,10 +72,9 @@ def extract_mmcif_info(structure) -> list:
                 "total_residues": total_residues,
                 "standard_residues": standard_residues,
                 "hetero_residue_count": hetero_residue_count
-                })
-            
-    return chains_lst
-
+                    })
+                
+        return chains_lst
 
 def mmcif_to_json_formatter(chains_lst: list) -> dict:
     """
@@ -97,12 +117,18 @@ def mmcif_to_json(mmcif_dict: dict) -> None:
 def main():
     # Create parser, open file, create structure object, call the required functions.
     parser = MMCIFParser()
-    with open("4HHB.cif", "r") as f:
-        structure = parser.get_structure("4HHB", f)
+    try:
+        with open("4HHB.cif", "r") as f:
+            structure = parser.get_structure("4HHB", f)
 
-    chains_lst = extract_mmcif_info(structure)
-    mmcif_dict = mmcif_to_json_formatter(chains_lst)
-    mmcif_to_json(mmcif_dict)
+        chains_lst = extract_mmcif_info(structure)
+        mmcif_dict = mmcif_to_json_formatter(chains_lst)
+        mmcif_to_json(mmcif_dict)
+
+        logging.info("MMCIF file extraction and JSON file creation complete.")
+    
+    except FileNotFoundError as e:
+        logging.error(f"Input mmCIF file not found.")
 
 if __name__ == "__main__":
     main()
