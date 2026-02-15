@@ -16,17 +16,19 @@ from Bio.PDB import MMCIFParser
 
 def extract_mmcif_info(structure) -> list:
     """
-    Given a parsed MMCIF file, extracts the chain_id, total_residues,
-    hetero_residue_count, and standard_residues for each chain and
-    appends them to a list by iterating through each level and keeping 
-    count of the respective information.
+    Given a parsed MMCIF file, extracts chain information.
 
     Args:
-        structure: a MMCIFParser object containing the protein information
+        structure: a parsed Bio.PDB object containing the protein information
+        from an mmCIF file.
     
     Returns:
-        chains_lst: a list of all chains in the protein MMCIF file along with their
-        chain_id, total_reisudes, standard_residues, and hetero_residue_count.
+        chains_lst: a list of dictionaries, one per chain, with the following
+        extracted information:
+        - chain_id
+        - total_residues
+        - standard_residues
+        - hetero_residue_count
     """
 
     chains_lst = []
@@ -54,33 +56,53 @@ def extract_mmcif_info(structure) -> list:
     return chains_lst
 
 
+def mmcif_to_json_formatter(chains_lst: list) -> dict:
+    """
+    Given a list of per-chain information from a MMCIF file,
+    adds them to a nested dictionary format for a specific
+    JSON file format.
 
-final_44HB = {
-    "chains" : chains_lst
-}
+    Args:
+        chains_lst: a list contianing a dictionary of each chain statistics.
+    
+    Returns:
+        mmcif_dict: a nested dictionary formatted to the required JSON format.
+    """
+
+    mmcif_dict = {
+        "chains" : chains_lst
+    }
+    
+    return mmcif_dict
 
 def mmcif_to_json(mmcif_dict: dict) -> None:
     """
-    Given a nested dictionary formatted with the contents from the mmcif_file,
-    writes the appropriate json file.
+    Given a nested dictionary formatted with the contents from the mmCIF dictionary,
+    writes the appropriate JSON file.
 
     Args:
-        mmcif_dict: a dictionary object containing the chain_id, total_residues, standard_residues, and hetero_residue count for each chain
+        mmcif_dict: a dictionary object containing the following for each chain:
+        - chain_id
+        - total_residues
+        - standard_residues
+        - hetero_residue_count
     
     Returns:
         None (output JSON file to disk)
     """
 
-    with open("44HB_summary.json", "w") as out:
-        json.dump(final_44HB, out, indent=2)
+    with open("4HHB_summary.json", "w") as out:
+        json.dump(mmcif_dict, out, indent = 2)
 
 def main():
-    # Create parser, open file, create structure object, call summarize_chains()
+    # Create parser, open file, create structure object, call the required functions.
     parser = MMCIFParser()
     with open("4HHB.cif", "r") as f:
         structure = parser.get_structure("4HHB", f)
 
-    summarize_chains(structure)
+    chains_lst = extract_mmcif_info(structure)
+    mmcif_dict = mmcif_to_json_formatter(chains_lst)
+    mmcif_to_json(mmcif_dict)
 
 if __name__ == "__main__":
     main()
