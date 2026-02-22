@@ -1,6 +1,6 @@
 # Homework 05
 
-This directory is for homework 5 of MBS 337, Reserach Computing in Biology.
+This directory is for homework 5 of MBS 337, Research Computing in Biology.
 
 ## Setup
 

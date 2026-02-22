@@ -12,8 +12,16 @@ parser.add_argument("-l", "--loglevel",
                     required = False,
                     default = "WARNING",
                     help = "set log level to DEBUG, INFO, WARNING, ERROR, or CRITICAL")
-parser.add_argument("-i", "--input", required = True, help = "Input a FASTA file")
-parser.add_argument("-o", "--output", required = True, help = "Output protein stats file")
+
+parser.add_argument("-i", "--input", 
+                    type = str,
+                    required = True, 
+                    help = "Input a FASTA file")
+
+parser.add_argument("-o", "--output", 
+                    type = str,
+                    required = True, 
+                    help = "Output protein stats file")
 
 args = parser.parse_args()
 
