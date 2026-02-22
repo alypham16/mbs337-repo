@@ -17,7 +17,7 @@ cd homework06
 docker build -t homework06-scripts .
 ```
 
-The following file was used for this homework:
+The following default files were used for this homework:
 
 - immune_proteins.fasta: https://github.com/TACC/mbs-337-sp26/raw/refs/heads/main/docs/unit03/sample-data/immune_proteins.fasta.gz
 
@@ -25,7 +25,7 @@ The following file was used for this homework:
 
 - 4HHB.cif (hemoglobin structure): https://files.rcsb.org/download/4HHB.cif.gz
 
-To run the tools, mount the $PWD data directory (has input files and where output files will be written) to a directory in the container via /data using -v and run each script as your user using -u$(id - u):$(id -g)
+To run the tools, mount the "$PWD" data directory (has input files and where output files will be written) to a directory in the container via /data using -v and run each script as your user using -u$(id - u):$(id -g)
 
 The four files may be ran using the following example commands or user-specified parameters in place of them, with default settings included for thresholds:
 
@@ -63,7 +63,7 @@ python /code/fastq_filter.py -i /data/sample1_rawReads.fastq -o /data/sample1_cl
 - mmcif_summary.py:
     - "-i", "--input": a path to input mmCIF file
     - "-o", "--output": a path to output JSON file
-    example:
+    - example:
 ```bash
 docker run --rm -u $(id -u):$(id -g) -v $(pwd):/data homework06-scripts \
 python /code/mmcif_summary.py -i /data/4HHB.cif -o /data/4HHB_summary.json
@@ -82,7 +82,7 @@ After running the container, the following files should be returned or created i
 
 ## Exercise Descriptions 
 
-This homework is composed of 5 parts. (https://mbs-337-sp26.readthedocs.io/en/latest/homework/homework06.html)
+This homework is composed of 5 parts (https://mbs-337-sp26.readthedocs.io/en/latest/homework/homework06.html).
 
 1. Rewriting the above scripts to containerize, separated into four different exercises that have similar functions as their original script files from Homeworks 4 and 5 with some additional requirements for containerization. 
 
@@ -101,7 +101,7 @@ The following non-exercise files are also in the Git directory
 - output_files: a sub-directory that includes 4HHB_summary.json, immune_proteins_stats.txt, long_only.fasta, and sample1_cleanReads.fastq.
 
 To ensure optimal usage of the container:
-- Run with -u $(id -u):$(id -g) to run the container with the ubuntu user ID to ensure output files are owned by you.
+- Run with "-u $(id -u):$(id -g)" to run the container with the ubuntu user ID to ensure output files are owned by you.
 
 - Mount data folder using -v $(pwd):/data.
 
