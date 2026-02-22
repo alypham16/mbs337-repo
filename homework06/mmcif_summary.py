@@ -111,7 +111,7 @@ def mmcif_to_json(mmcif_dict: dict) -> None:
         None (output JSON file to disk)
     """
 
-    with open("4HHB_summary.json", "w") as out:
+    with open(args.output, "w") as out:
         json.dump(mmcif_dict, out, indent = 2)
 
 def main():
@@ -120,11 +120,11 @@ def main():
     parser = MMCIFParser()
 
     try:
-        structure = parser.get_structure("structure", args.input_cif)
+        structure = parser.get_structure("structure", args.input)
 
         chains_lst = extract_mmcif_info(structure)
         mmcif_dict = mmcif_to_json_formatter(chains_lst)
-        mmcif_to_json(mmcif_dict, args.output_json)
+        mmcif_to_json(mmcif_dict, args.output)
 
         logging.info("MMCIF file extraction and JSON file creation complete.")
     
