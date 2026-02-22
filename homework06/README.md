@@ -101,7 +101,7 @@ The following non-exercise files are also in the Git directory
 - output_files: a sub-directory that includes 4HHB_summary.json, immune_proteins_stats.txt, long_only.fasta, and sample1_cleanReads.fastq.
 
 To ensure optimal usage of the container:
-- Run with -u \\$(id -u):$(id -g) to run the container with the ubuntu user ID to ensure output files are owned by you.
+- Run with -u \$(id -u):$(id -g) to run the container with the ubuntu user ID to ensure output files are owned by you.
 
 - Mount data folder using -v $(pwd):/data.
 
