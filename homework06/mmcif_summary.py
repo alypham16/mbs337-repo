@@ -17,7 +17,7 @@ parser.add_argument("-l", "--loglevel",
 parser.add_argument("-i", "--input",
                     type = str,
                     required = True,
-                    help="Path to input mmCIF file")
+                    help = "Path to input mmCIF file")
 
 parser.add_argument("-o", "--output",
                     type = str,

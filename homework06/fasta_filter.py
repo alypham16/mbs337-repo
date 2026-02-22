@@ -28,7 +28,7 @@ parser.add_argument("-t", "--threshold",
                     type = int,
                     required = True,
                     default = 1000,
-                    help = "Minimum sequence length to include in output FASTA file (default: 100)")
+                    help = "Minimum sequence length to include in output FASTA file (default: 1000)")
 
 args = parser.parse_args()
 
