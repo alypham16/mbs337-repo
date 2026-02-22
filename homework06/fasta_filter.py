@@ -5,6 +5,8 @@ import logging
 import socket
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 
+# Command line argument parsing
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-l", "--loglevel",
                     type = str,
@@ -13,7 +15,7 @@ parser.add_argument("-l", "--loglevel",
                     help = "set log level to DEBUG, INFO, WARNING, ERROR, or CRITICAL")
 
 parser.add_argument("-i", "--input", 
-                    type = str
+                    type = str,
                     required = True, 
                     help = "Input a FASTA file")
 
@@ -39,7 +41,7 @@ format_str = (
 
 logging.basicConfig(level = args.loglevel, format = format_str)
 
-# Functions
+# Core function
 
 def long_filtering(input_file: object, output_file: object) -> None:
     """
@@ -56,12 +58,19 @@ def long_filtering(input_file: object, output_file: object) -> None:
         None
     
     """
-    with open(input_file, "r") as infile, open(output_file, "w") as outfile:
-        for header, sequence in SimpleFastaParser(infile):
+    try:
+        with open(input_file, "r") as infile, open(output_file, "w") as outfile:
+            for header, sequence in SimpleFastaParser(infile):
 
-            if len(sequence) >= args.threshold:
-                outfile.write(f">{header}\n")
-                outfile.write(f"{sequence}\n\n") # adding an extra line spacer in between for readibility
+                if len(sequence) >= args.threshold:
+                    outfile.write(f">{header}\n")
+                    outfile.write(f"{sequence}\n\n") # adding an extra line spacer in between for readibility
+    
+    except FileNotFoundError as e:
+        logging.error(f"Input FASTA file not found: {e}")
+
+    except Exception as e:
+        logging.error(f"An error occurred while filtering sequences: {e}")
 
 def main():
     long_filtering(args.input, args.output)

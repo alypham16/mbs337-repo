@@ -6,6 +6,7 @@ import socket
 from Bio import SeqIO
 
 # Command line argument parsing
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-l", "--loglevel",
                     type = str,
@@ -38,6 +39,7 @@ parser.add_argument("-t", "--threshold",
 args = parser.parse_args()
 
 # Logging setup
+
 format_str = (
     f'[%(asctime)s {socket.gethostname()}] '
     '%(filename)s:%(funcName)s:%(lineno)s - %(levelname)s: %(message)s'
@@ -47,6 +49,7 @@ logging.basicConfig(level = args.loglevel, format = format_str)
 
 
 # Core function
+
 def extract_quality_fastq(input_file: object, output_file: object) -> None:
     """
     Given a FASTQ file, filters out sequences that have an average Phred quality score

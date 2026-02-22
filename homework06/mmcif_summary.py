@@ -5,7 +5,8 @@ import socket
 from Bio.PDB import MMCIFParser
 
 
-# Logging setup
+# Command line argument parsing
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-l", "--loglevel",
                     type = str,
@@ -13,15 +14,17 @@ parser.add_argument("-l", "--loglevel",
                     default = "WARNING",
                     help = "set log level to DEBUG, INFO, WARNING, ERROR, or CRITICAL")
 
-parser.add_argument("input_cif",
-                    type=str,
+parser.add_argument("-i", "--input",
+                    type = str,
                     help="Path to input mmCIF file")
 
-parser.add_argument("output_json",
-                    type=str,
-                    help="Path to output JSON file")
+parser.add_argument("-o", "--output",
+                    type = str,
+                    help = "Path to output JSON file")
 
 args = parser.parse_args()
+
+# Logging setup
 
 format_str = (
     f'[%(asctime)s {socket.gethostname()}] '
@@ -29,6 +32,8 @@ format_str = (
 )
 
 logging.basicConfig(level = args.loglevel, format = format_str)
+
+# Core functions
 
 def extract_mmcif_info(structure: object) -> list:
     """

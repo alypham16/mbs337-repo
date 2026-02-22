@@ -5,7 +5,8 @@ import logging
 import socket
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 
-# Logging setup
+# Command line argument parsing
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-l", "--loglevel",
                     type = str,
@@ -25,12 +26,16 @@ parser.add_argument("-o", "--output",
 
 args = parser.parse_args()
 
+# Logging setup
+
 format_str = (
     f'[%(asctime)s {socket.gethostname()}] '
     '%(filename)s:%(funcName)s:%(lineno)s - %(levelname)s: %(message)s'
 )
 
 logging.basicConfig(level = args.loglevel, format = format_str)
+
+# Core function
 
 def extract_fasta_stats(input_file: object, output_file: object) -> None:
     """
