@@ -16,10 +16,12 @@ parser.add_argument("-l", "--loglevel",
 
 parser.add_argument("-i", "--input",
                     type = str,
+                    required = True,
                     help="Path to input mmCIF file")
 
 parser.add_argument("-o", "--output",
                     type = str,
+                    required = True,
                     help = "Path to output JSON file")
 
 args = parser.parse_args()
@@ -72,9 +74,8 @@ def extract_mmcif_info(structure: object) -> list:
                 "total_residues": total_residues,
                 "standard_residues": standard_residues,
                 "hetero_residue_count": hetero_residue_count
-                    })
-                
-        return chains_lst
+                    }) 
+    return chains_lst
 
 def mmcif_to_json_formatter(chains_lst: list) -> dict:
     """
@@ -95,7 +96,7 @@ def mmcif_to_json_formatter(chains_lst: list) -> dict:
     
     return mmcif_dict
 
-def mmcif_to_json(mmcif_dict: dict) -> None:
+def mmcif_to_json(mmcif_dict: dict, outfile_file: str) -> None:
     """
     Given a nested dictionary formatted with the contents from the mmCIF dictionary,
     writes the appropriate JSON file.
@@ -111,7 +112,7 @@ def mmcif_to_json(mmcif_dict: dict) -> None:
         None (output JSON file to disk)
     """
 
-    with open(args.output, "w") as out:
+    with open(outfile_file, "w") as out:
         json.dump(mmcif_dict, out, indent = 2)
 
 def main():
@@ -129,7 +130,7 @@ def main():
         logging.info("MMCIF file extraction and JSON file creation complete.")
     
     except FileNotFoundError as e:
-        logging.error(f"Input mmCIF file not found.")
+        logging.error(f"Input mmCIF file not found: {e}")
 
     except Exception as e:
         logging.error(f"Error: {e}")
