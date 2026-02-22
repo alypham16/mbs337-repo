@@ -25,7 +25,7 @@ The following default files were used for this homework:
 
 - 4HHB.cif (hemoglobin structure): https://files.rcsb.org/download/4HHB.cif.gz
 
-To run the tools, mount the "$PWD" data directory (has input files and where output files will be written) to a directory in the container via /data using -v and run each script as your user using -u$(id - u):$(id -g)
+To run the tools, mount the \\$PWD data directory (has input files and where output files will be written) to a directory in the container via /data using -v and run each script as your user using -u\\$(id - u):\\$(id -g)
 
 The four files may be ran using the following example commands or user-specified parameters in place of them, with default settings included for thresholds:
 
@@ -101,7 +101,7 @@ The following non-exercise files are also in the Git directory
 - output_files: a sub-directory that includes 4HHB_summary.json, immune_proteins_stats.txt, long_only.fasta, and sample1_cleanReads.fastq.
 
 To ensure optimal usage of the container:
-- Run with "-u $(id -u):$(id -g)" to run the container with the ubuntu user ID to ensure output files are owned by you.
+- Run with -u \\$(id -u):\\$(id -g) to run the container with the ubuntu user ID to ensure output files are owned by you.
 
 - Mount data folder using -v $(pwd):/data.
 
