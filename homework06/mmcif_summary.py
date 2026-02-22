@@ -107,6 +107,7 @@ def mmcif_to_json(mmcif_dict: dict, outfile_file: str) -> None:
         - total_residues
         - standard_residues
         - hetero_residue_count
+        outfile_file: a string containing the path to the output JSON file.
     
     Returns:
         None (output JSON file to disk)
@@ -118,10 +119,10 @@ def mmcif_to_json(mmcif_dict: dict, outfile_file: str) -> None:
 def main():
     # Create parser, open file, create structure object, call the required functions.
     
-    parser = MMCIFParser()
+    cif_parser = MMCIFParser()
 
     try:
-        structure = parser.get_structure("structure", args.input)
+        structure = cif_parser.get_structure("structure", args.input)
 
         chains_lst = extract_mmcif_info(structure)
         mmcif_dict = mmcif_to_json_formatter(chains_lst)

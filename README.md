@@ -6,3 +6,4 @@ It contains the following:
 - homework03: A directory containing exercises and associated files for homework 03.
 - homework04: A directory containing exercises and associated files for homework 04.
 - homework05: A directory containing exercises and associated files for homework05.
+- homework06: A directory containing exercises and associated files for homework06.

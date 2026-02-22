@@ -4,7 +4,7 @@ This directory is for homework 5 of MBS 337, Research Computing in Biology.
 
 ## Setup
 
-The exercises for Homework 04 were ran in a virtual environment with the **biopython** package installed:
+The exercises for Homework 05 were ran in a virtual environment with the **biopython** package installed:
 
 ```bash
 source myenv/bin/activate
