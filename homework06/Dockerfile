@@ -16,4 +16,4 @@ RUN chmod ugo+x /code/fasta_stats.py
 RUN chmod ugo+x /code/fastq_filter.py
 RUN chmod ugo+x /code/mmcif_summary.py
 
-ENV PATH = "/code:${PATH}"
+ENV PATH="/code:${PATH}"
