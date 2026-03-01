@@ -102,7 +102,7 @@ def record_files(records: list, output_file: str) -> None:
     try:
         with open("genbank_records.txt", "w") as outfile:
             for record in records:
-                outfile.write(f"ID:{record.id}\nName:{record.name}\nDescription:{record.description}\nSequence:{record.seq}\n")
+                outfile.write(f"ID: {record.id}\nName: {record.name}\nDescription: {record.description}\nSequence: {record.seq}\n\n")
     except Exception as e:
         logging.error(f"An error occurred while trying to write the output file: {e}")
 
