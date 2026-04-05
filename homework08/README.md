@@ -58,6 +58,7 @@ This homework is composed of 2 parts (https://mbs-337-sp26.readthedocs.io/en/lat
 The following non-exercise files are also in the Git directory
 - README.md: This file, which contains an overview of the homework08 directory.
 - test/test_app.py - integration test checking if the Dash app responds with http 200.
+- requirements.txt - dependencies required for the exercise
 
 The following non-exercise files are in the repository and utilized:
 - .github/workflows/ - contains GitHub Actions workflows used for automated testing and container publishing
