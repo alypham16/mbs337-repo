@@ -18,16 +18,18 @@ make compose-up
 docker ps
 ```
 The dashboard should be available via browser showing "Hello, Dash!" :
-https://localhost:8050
+http://localhost:8050
 
 To run staging deployment:
 ```bash
-make compose-staging
+make compose-up-staging
 ```
 
 The staging dashboard should run on:
 
-https://localhost:8051
+http://localhost:8051
+
+Staging maps host port 8051 to container 8050.
 
 To stop running the containers, use either of the following:
 ```bash
@@ -45,16 +47,17 @@ This homework is composed of 2 parts (https://mbs-337-sp26.readthedocs.io/en/lat
 - requirements.txt - Python packages required for the Dash app
 - docker-compose.yml - Production container configuration
 - docker-compose-staging.yml - Staging deployment configuration
-- Makefile - simplfiies container management
+- Makefile - simplifies container management
 
-2. Creating two GitHub Actions workflows for (1) running the intgration test for every repository push and (2) automatically building and pushing a container image to the GitHub Container Registry with every tag added.
+2. Creating two GitHub Actions workflows for (1) running the integration test for every repository push and (2) automatically building and pushing a container image to the GitHub Container Registry with every tag added.
 
-- integration-test.yml - Runs integrations tests using pytest when code is pushed to the repository.
+- integration-test.yml - Runs integration tests using pytest when code is pushed to the repository.
 - push-to-registry.yml - Automatically builds and pushes a container image to GitHub Container Registry when a new version tag is added to the repository.
 
 ## Miscellaneous
 The following non-exercise files are also in the Git directory
 - README.md: This file, which contains an overview of the homework08 directory.
+- test/test_app.py - integration test checking if the Dash app responds with http 200.
 
 The following non-exercise files are in the repository and utilized:
 - .github/workflows/ - contains GitHub Actions workflows used for automated testing and container publishing
