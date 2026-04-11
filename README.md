@@ -11,3 +11,4 @@ It contains the following:
 - homework07: A directory containing exercises and associated files for homework07.
 - homework08: A directory containing exericses and associated files for homework08.
 - homework09: A directory containing exercises and associated files for homework09.
+- homework10: A directory containing exercises and associate files for homework10.
