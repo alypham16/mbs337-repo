@@ -39,6 +39,7 @@ This homework is composed of 2 parts (https://mbs-337-sp26.readthedocs.io/en/lat
 The following non-exercise files are also in the Git directory
 - README.md: This file, which contains an overview of the homework10 directory.
 - requirements.txt: includes dependencies for the exercise.
+- sample_data.csv: a sample dataset that can be used to demonstrate the model deployment
 
 ## AI Usage
 
