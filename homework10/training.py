@@ -14,21 +14,13 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, rando
 
 
 # Pipeline fitting the data to a linear classifier
-bc_linear_classifier = Pipeline([
-    ('classifier', SGDClassifier())])
-
+bc_linear_classifier = SGDClassifier()
 bc_linear_classifier.fit(X_train, y_train)
 y_pred_linear = bc_linear_classifier.predict(X_test)
+print(f'Accuracy: {accuracy_score(y_test, y_pred_linear)}')
 
 with open('breast_cancer_classifier_pipeline.pkl', 'wb') as f:
     pickle.dump(bc_linear_classifier, f)
-
-with open('breast_cancer_classifier_pipeline.pkl', 'rb') as f:
-    linear_loaded_pipeline = pickle.load(f)
-
-y_pred_linear = linear_loaded_pipeline.predict(X_test)
-print(f'Accuracy: {accuracy_score(y_test, y_pred_linear)}')
-
 
 # Pipeline normalizing data & then applying a linear classifier
 bc_std_linear_classifier = Pipeline([
@@ -37,6 +29,8 @@ bc_std_linear_classifier = Pipeline([
 ])
 
 bc_std_linear_classifier.fit(X_train, y_train)
+y_pred_std = bc_std_linear_classifier.predict(X_test)
+print(f'Accuracy: {accuracy_score(y_test, y_pred_std)}')
 
-with open('breast_cancer_normalizer_data_classifier_pipeline.pkl', 'wb') as f:
+with open('breast_cancer_scaled_classifier_pipeline.pkl', 'wb') as f:
     pickle.dump(bc_std_linear_classifier, f)
